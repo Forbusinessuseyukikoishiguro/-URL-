@@ -1,0 +1,49 @@
+
+実行方法★
+VSCODEで
+desktop\20250322Pythonpra> py .\asa2.py
+
+###################
+URLがタブで開かない問題を修正します！より確実にタブで開く方法に変更しますね。URLがタブで開かない問題を修正しました！**より確実にタブで開く**ように大幅に改良しています。
+
+## 🔧 主な修正点
+
+### 1. **確実なタブオープン方法**
+- `webbrowser`モジュールを削除（新しいウィンドウで開いてしまうため）
+- 直接`subprocess`でChromeコマンドを実行
+- OS別の最適化されたタブオープンコマンド
+
+### 2. **2つの開き方を選択可能**
+```
+開き方を選択:
+1. 順次タブで開く（推奨）  ← 2秒間隔で確実にタブで開く
+2. 一括で開く             ← 全URLを一度に開く
+```
+
+### 3. **OS別の確実なコマンド**
+- **Windows**: `chrome.exe --new-tab URL`
+- **macOS**: `open -na "Google Chrome" --args --new-tab URL` 
+- **Linux**: `google-chrome --new-tab URL`
+
+## 🎯 実際に使えるURLセット
+
+**1. 一般サイト**: Google, GitHub, Stack Overflow
+**2. 開発関連**: Python公式, Qiita, Zenn
+**3. ニュース**: Yahoo, 日経, ITmedia
+**4. 全部**: 上記すべて
+**5. カスタム**: コード内で自分用URLを設定
+
+## 💡 カスタムURL設定
+
+コード内の`custom_urls`リストを編集してください：
+```python
+custom_urls = [
+    "https://www.example.com",
+    "https://www.google.com/search?q=Python+tutorial",
+    # ← ここに好きなURLを追加
+]
+```
+
+
+
+もしまだ問題があれば、お使いのOSを教えてください。さらに最適化できます！
